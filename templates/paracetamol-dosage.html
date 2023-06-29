@@ -14,7 +14,49 @@ Paracetamol dosage
         <div class="wrapper">
             <p>Calculate the maximum dose of paracetamol according to the age and weight of the patient.</p>
         </div>
+
+        <div class="wrapper">
+            <div class="form-floating mb-3">
+                <input autofocus type="number" class="form-control" name="age" min="1" value="{{age}}">
+                <label for="age">Age (in years):</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" name="weight" min="1" value="{{weight}}">
+                <label for="weight">Weight (in kg):</label>
+            </div>
+            <button class="btn btn-primary" onclick="calculateDosage()">Calculate</button>
+        </div>
+
+        <div class="wrapper">
+            <p>Max dosage per day: <span id="max-dosage">{{maxDosage}}</span></p>
+        </div>
     </div>
 </section>
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+
+    function calculateDosage() {
+        const age = document.getElementsByClassName("form-control")[0].value;
+        const weight = document.getElementsByClassName("form-control")[1].value;
+        let maxDosage = document.getElementById("max-dosage");
+        let calculatedDosage = 0;
+
+        if (age < 18 && weight <= 33) {
+            calculateDosage = (50 * weight) + 'mg';
+        }
+        else if (age < 18 && weight > 33 || age >= 18 && weight < 50) {
+            calculateDosage = (65 * weight) + 'mg';
+        } else {
+            calculateDosage = "4g";
+        }
+
+        maxDosage.innerHTML = calculateDosage;
+    }
+
+</script>
 
 {% endblock %}

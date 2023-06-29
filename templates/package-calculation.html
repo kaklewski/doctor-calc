@@ -18,22 +18,20 @@ Package calculation
         <div class="wrapper">
             <form action="/package-calculation" method="post">
                 <div class="form-floating mb-3">
-                    <input autofocus type="number" class="form-control" id="intake" name="intake" min="1"
-                        value="{{intake}}">
+                    <input autofocus type="number" class="form-control" name="intake" min="1" value="{{intake}}">
                     <label for="intake">Amount per intake:</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="number-of-intakes" name="number-of-intakes" min="1"
+                    <input type="number" class="form-control" name="number-of-intakes" min="1"
                         value="{{numberOfIntakes}}">
                     <label for="number-of-intakes">Intakes per day:</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="days" name="days" min="1" value="{{days}}">
+                    <input type="number" class="form-control" name="days" min="1" value="{{days}}">
                     <label for="days">Period of use (in days):</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="package-size" name="package-size" min="1"
-                        value="{{packageSize}}">
+                    <input type="number" class="form-control" name="package-size" min="1" value="{{packageSize}}">
                     <label for="package-size">Package size:</label>
                 </div>
                 <button class="btn btn-primary" type="submit">Calculate</button>
@@ -45,7 +43,6 @@ Package calculation
         <p>Packages to prescribe: <span id="packages">{{numberOfPackages}}</span></p>
     </div>
 
-    </div>
 </section>
 
 {% endblock %}

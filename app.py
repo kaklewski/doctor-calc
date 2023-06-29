@@ -53,9 +53,24 @@ def cha2ds2vascScore():
     return render_template("cha2ds2vasc-score.html")
 
 
-@app.route("/ibuprofen-dosage")
+@app.route("/ibuprofen-dosage", methods=["GET", "POST"])
 def ibuprofenDosage():
-    return render_template("ibuprofen-dosage.html")
+    if request.method == "POST":
+
+        if not request.form.get("age") or not request.form.get("weight"):
+            return apology("not all values have been provided", 400)
+        else:
+            age = int(request.form.get("age"))
+            weight = int(request.form.get("weight"))
+
+            if age <= 12:
+                maxDosage = str(30 * weight) + "mg"
+            else:
+                maxDosage = "1200mg"
+
+            return render_template("ibuprofen-dosage.html", age=int(age), weight=int(weight), maxDosage=maxDosage)
+    else:
+        return render_template("ibuprofen-dosage.html")
 
 
 @app.route("/package-calculation", methods=["GET", "POST"])
@@ -73,6 +88,7 @@ def packageCalculation():
                 ((intake * numberOfIntakes * days) / packageSize))
 
         return render_template("package-calculation.html", intake=int(intake), numberOfIntakes=int(numberOfIntakes), days=int(days), packageSize=int(packageSize), numberOfPackages=int(numberOfPackages))
+
     else:
         return render_template("package-calculation.html")
 
