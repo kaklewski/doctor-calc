@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+
+{% block title %}
+DoctorCalc - Dosage calculation and medical scores for doctors
+{% endblock %}
+
+{% block main %}
+
+<section class="header">
+    <div class="header-shadow"></div>
+    <div class="header-text">
+        <h1>Welcome to Doctor<span>Calc</span></h1>
+        <p>The source of medical calculators and criteria scores for every doctor.</p>
+    </div>
+    <a href="#dosage" class="see-more"><button><i class="fa-solid fa-angles-down fa-beat-fade"></i></button></a>
+</section>
+
+<section id="dosage" class="dosage py-5">
+    <div class="container">
+        <h2><i class="fa-solid fa-tablets"></i>Dosage calculation</h2>
+        <div class="underline"></div>
+
+        <div class="row">
+
+            <div class="col-lg-4 col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Paracetamol dosage</h5>
+                        <p class="card-text">Calculate the maximum dose of paracetamol according to the age and weight
+                            of the patient.</p>
+                        <a href="/paracetamol-dosage" class="btn btn-primary">Open</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Ibuprofen dosage</h5>
+                        <p class="card-text">Calculate the maximum dose of ibuprofen according to the age and weight of
+                            the patient.</p>
+                        <a href="/ibuprofen-dosage" class="btn btn-primary">Open</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Package calculation</h5>
+                        <p class="card-text">Calculate the number of medicine packages to be prescribed based on the
+                            dosage.</p>
+                        <a href="package-calculation" class="btn btn-primary">Open</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="criteria" class="criteria py-5">
+    <div class="container">
+        <h2><i class="fa-solid fa-list"></i>Medical criteria scores</h2>
+        <div class="underline"></div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Wells score for DVT</h5>
+                        <p class="card-text">Calculate the risk of deep vein thrombosis based on patient's clinical
+                            criteria.</p>
+                        <a href="/wells-score-dvt" class="btn btn-primary">Open</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">CHA<sub>2</sub>DS<sub>2</sub>-VASc score</h5>
+                        <p class="card-text">Assess the risk of stroke complications for a patient with
+                            artial fibrillation.</p>
+                        <a href="/cha2ds2vasc-score" class="btn btn-primary">Open</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Centor score (McIsaac modified)</h5>
+                        <p class="card-text">Estimate the likelihood that the pathogens that caused acute pharyngitis
+                            are streptococci.</p>
+                        <a href="/centor-score" class="btn btn-primary">Open</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about py-5">
+    <div class="container">
+        <h2><i class="fa-solid fa-circle-info"></i>About DoctorCalc</h2>
+        <div class="underline"></div>
+
+        <div class="about-text">
+            <p>DoctorCalc is a final project for the CS50x course made by Oskar Kąklewski from Poland. It is inspired by
+                my wife, who is a doctor and needs such utility in her daily work. She also acted as my substantive
+                consultant during the app development.</p>
+            <p>The project has been created with the use of such technologies as:</p>
+            <ul>
+                <li>HTML5 & CSS3</li>
+                <li>JavaScript</li>
+                <li>SASS</li>
+                <li>Bootstrap</li>
+                <li>Python & Flask</li>
+            </ul>
+            <p>All icons are taken from <a href="https://fontawesome.com/">Font Awesome</a> and images from <a
+                    href="https://unsplash.com/">Unsplash</a>.</p>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Package calculation
+{% endblock %}
+
+{% block main %}
+
+<section class="py-5">
+    <div class="container">
+        <h2><i class="fa-solid fa-tablets"></i>Package calculation</h2>
+        <div class="underline"></div>
+
+        <div class="wrapper">
+            <p>Calculate the number of medicine packages to be prescribed based on the dosage.</p>
+        </div>
+
+        <div class="wrapper">
+            <form action="/package-calculation" method="post">
+                <div class="form-floating mb-3">
+                    <input autofocus type="number" class="form-control" id="intake" name="intake" min="1"
+                        value="{{intake}}">
+                    <label for="intake">Amount per intake:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="number-of-intakes" name="number-of-intakes" min="1"
+                        value="{{numberOfIntakes}}">
+                    <label for="number-of-intakes">Intakes per day:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="days" name="days" min="1" value="{{days}}">
+                    <label for="days">Period of use (in days):</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="package-size" name="package-size" min="1"
+                        value="{{packageSize}}">
+                    <label for="package-size">Package size:</label>
+                </div>
+                <button class="btn btn-primary" type="submit">Calculate</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <p>Packages to prescribe: <span id="packages">{{numberOfPackages}}</span></p>
+    </div>
+
+    </div>
+</section>
+
+{% endblock %}
