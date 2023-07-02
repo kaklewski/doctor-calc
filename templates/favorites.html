@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Favorites
+{% endblock %}
+
+{% block main %}
+<section class="py-5">
+    <div class="container">
+
+        <h2><i class="fa-solid fa-star"></i>Favorites</h2>
+        <div class="underline"></div>
+
+        <div class="wrapper">
+
+            <table class="">
+                <tbody>
+                    {% for favorite in favorites %}
+                    <tr class="mb-3">
+                        <td>{{ favorite["favorite"] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</section>
+{% endblock %}

@@ -108,7 +108,13 @@ Wells score for DVT
         </div>
         <div class="wrapper">
             <p>Recommendation:</p>
-            <p id="recommendation">Determine D-dimer. If negative, rule out DVT. If positive, perform CUS of the proximal veins or the entire venous system.</p>
+            <p id="recommendation">Determine D-dimer. If negative, rule out DVT. If positive, perform CUS of the
+                proximal veins or the entire venous system.</p>
+        </div>
+
+        <div class="favorite-wrapper mb-5">
+            <a href="/favorite?type=WellsScoreDVT" class="add-to-favorite"><i class="fa-solid fa-star"></i> Add to
+                favorites</a>
         </div>
     </div>
 </section>
@@ -118,6 +124,41 @@ Wells score for DVT
 
 {% block script %}
 
-<script type="text/javascript" src="../static/js/wells-score-dvt.js"></script>
+<script>
+
+    const riskSpan = document.getElementById("risk");
+    let calculatedRisk = "Low";
+    const recommendationParagraf = document.getElementById("recommendation");
+    let recommendation = "";
+
+    const allCheckboxes = [...document.getElementsByClassName("form-check-input")];
+
+    function calculateRisk() {
+        let calculatedPoints = document.getElementById("score").innerHTML;
+
+        console.log(calculatedPoints);
+
+        if (calculatedPoints <= 0) {
+            calculatedRisk = "Low";
+            recommendation =
+                "Determine D-dimer. If negative, rule out DVT. If positive, perform CUS of the proximal veins or the entire venous system.";
+        } else if (calculatedPoints <= 2) {
+            calculatedRisk = "Moderate";
+            recommendation =
+                "Determine D-dimer. If negative, rule out DVT. If positive, perform CUS of the proximal veins or the entire venous system.";
+        } else {
+            calculatedRisk = "High";
+            recommendation =
+                "Perform CUS of the proximal veins or the entire venous system.";
+        }
+        riskSpan.innerHTML = calculatedRisk;
+        recommendationParagraf.innerHTML = recommendation;
+    }
+
+    allCheckboxes.forEach(function (checkbox) {
+        checkbox.addEventListener("change", calculateRisk);
+    });
+
+</script>
 
 {% endblock %}
