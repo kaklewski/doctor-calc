@@ -16,21 +16,19 @@ Ibuprofen dosage
         </div>
 
         <div class="wrapper">
-            <form action="/ibuprofen-dosage" method="post">
-                <div class="form-floating mb-3">
-                    <input autofocus type="number" class="form-control" name="age" min="1" value="{{age}}">
-                    <label for="age">Age (in years):</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="weight" min="1" value="{{weight}}">
-                    <label for="weight">Weight (in kg):</label>
-                </div>
-                <button class="btn btn-primary" type="submit">Calculate</button>
-            </form>
+            <div class="form-floating mb-3">
+                <input autofocus type="number" class="form-control" name="age" min="1" value="{{age}}">
+                <label for="age">Age (in years):</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" name="weight" min="1" value="{{weight}}">
+                <label for="weight">Weight (in kg):</label>
+            </div>
+            <button class="btn btn-primary" type="submit" onclick="calculateDosage()">Calculate</button>
         </div>
 
         <div class="wrapper">
-            <p>Max dosage per day: <span id="max-dosage">{{maxDosage}}</span></p>
+            <p>Max dosage per day: <span id="max-dosage"></span></p>
         </div>
 
         <div class="favorite-wrapper mb-3">
@@ -39,5 +37,29 @@ Ibuprofen dosage
         </div>
     </div>
 </section>
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+
+    function calculateDosage() {
+        const age = document.getElementsByClassName("form-control")[0].value;
+        const weight = document.getElementsByClassName("form-control")[1].value;
+        let maxDosage = document.getElementById("max-dosage");
+        let calculatedDosage = 0;
+
+        if (age <= 12) {
+            calculateDosage = (30 * weight) + 'mg';
+        }
+        else {
+            calculateDosage = "1200g";
+        }
+
+        maxDosage.innerHTML = calculateDosage;
+    }
+
+</script>
 
 {% endblock %}
