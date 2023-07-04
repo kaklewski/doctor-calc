@@ -24,11 +24,11 @@ Paracetamol dosage
                 <input type="number" class="form-control" name="weight" min="1" value="{{weight}}">
                 <label for="weight">Weight (in kg):</label>
             </div>
-            <button class="btn btn-primary" onclick="calculateDosage()">Calculate</button>
+            <button class="btn btn-primary">Calculate</button>
         </div>
 
         <div class="wrapper">
-            <p>Max dosage per day: <span id="max-dosage">{{maxDosage}}</span></p>
+            <p>Max dosage per day: <span id="max-dosage"></span></p>
         </div>
 
         <div class="favorite-wrapper mb-5">
@@ -43,7 +43,6 @@ Paracetamol dosage
 {% block script %}
 
 <script>
-
     function calculateDosage() {
         const age = document.getElementsByClassName("form-control")[0].value;
         const weight = document.getElementsByClassName("form-control")[1].value;
@@ -52,16 +51,17 @@ Paracetamol dosage
 
         if (age < 18 && weight <= 33) {
             calculateDosage = (50 * weight) + 'mg';
-        }
-        else if (age < 18 && weight > 33 || age >= 18 && weight < 50) {
+        } else if (age < 18 && weight > 33 || age >= 18 && weight < 50) {
             calculateDosage = (65 * weight) + 'mg';
         } else {
             calculateDosage = "4g";
         }
-
         maxDosage.innerHTML = calculateDosage;
     }
 
+    // Run the function when the button is clicked
+    const btn = document.querySelector(".btn")
+    btn.addEventListener("click", calculateDosage)
 </script>
 
 {% endblock %}

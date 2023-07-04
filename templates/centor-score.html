@@ -99,19 +99,17 @@ Centor score (McIsaac modified)
 {% block script %}
 
 <script>
-
     const riskSpan = document.getElementById("risk");
-    let calculatedRisk = "";
     const recommendationParagraf = document.getElementById("recommendation");
-    let recommendation = "";
-
     const allCheckboxes = [...document.getElementsByClassName("form-check-input")];
 
     function calculateRisk() {
+        // Read number of points (assigned by a function in main.js)
         let calculatedPoints = document.getElementById("score").innerHTML;
+        let calculatedRisk = "";
+        let recommendation = "";
 
-        console.log(calculatedPoints);
-
+        // Assign risk and recommendation by the amount of points
         if (calculatedPoints <= 1) {
             calculatedRisk = "Low";
             recommendation =
@@ -128,11 +126,11 @@ Centor score (McIsaac modified)
         riskSpan.innerHTML = calculatedRisk;
         recommendationParagraf.innerHTML = recommendation;
     }
-
+    
+    // Run the function whenever one of the values is changed
     allCheckboxes.forEach(function (checkbox) {
         checkbox.addEventListener("change", calculateRisk);
     });
-
 </script>
 
 {% endblock %}

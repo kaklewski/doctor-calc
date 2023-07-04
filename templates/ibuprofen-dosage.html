@@ -24,7 +24,7 @@ Ibuprofen dosage
                 <input type="number" class="form-control" name="weight" min="1" value="{{weight}}">
                 <label for="weight">Weight (in kg):</label>
             </div>
-            <button class="btn btn-primary" type="submit" onclick="calculateDosage()">Calculate</button>
+            <button class="btn btn-primary" type="submit">Calculate</button>
         </div>
 
         <div class="wrapper">
@@ -43,7 +43,6 @@ Ibuprofen dosage
 {% block script %}
 
 <script>
-
     function calculateDosage() {
         const age = document.getElementsByClassName("form-control")[0].value;
         const weight = document.getElementsByClassName("form-control")[1].value;
@@ -56,10 +55,12 @@ Ibuprofen dosage
         else {
             calculateDosage = "1200g";
         }
-
         maxDosage.innerHTML = calculateDosage;
     }
 
+    // Run the function when the button is clicked
+    const btn = document.querySelector(".btn")
+    btn.addEventListener("click", calculateDosage)
 </script>
 
 {% endblock %}

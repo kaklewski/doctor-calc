@@ -10,21 +10,16 @@ Favorites
 
         <h2><i class="fa-solid fa-star"></i>Favorites</h2>
         <div class="underline"></div>
-
         <div class="wrapper">
-
-            <table class="">
-                <tbody>
-                    {% for favorite in favorites %}
-                    <tr class="mb-3">
-                        <td>{{ favorite["favorite"] }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-
+            {% for favorite in favorites %}
+                <div class="favorites-list">
+                    <div class="favorite-item">
+                        <a href="/{{ favorite["favorite_link"] }}">{{favorite["favorite_name"]}}</a>
+                        <a href="/favorite-remove?type={{ favorite["favorite"] }}"><button type="button" class="btn btn-danger">Remove</button></a>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-
     </div>
 </section>
 {% endblock %}

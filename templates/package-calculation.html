@@ -16,29 +16,26 @@ Package calculation
         </div>
 
         <div class="wrapper">
-            <form action="/package-calculation" method="post">
-                <div class="form-floating mb-3">
-                    <input autofocus type="number" class="form-control" name="intake" min="1" value="{{intake}}">
-                    <label for="intake">Amount per intake:</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="number-of-intakes" min="1"
-                        value="{{numberOfIntakes}}">
-                    <label for="number-of-intakes">Intakes per day:</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="days" min="1" value="{{days}}">
-                    <label for="days">Period of use (in days):</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="package-size" min="1" value="{{packageSize}}">
-                    <label for="package-size">Package size:</label>
-                </div>
-                <button class="btn btn-primary" type="submit">Calculate</button>
-            </form>
+            <div class="form-floating mb-3">
+                <input autofocus type="number" class="form-control" name="intake" min="1" value="{{intake}}">
+                <label for="intake">Amount per intake:</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" name="number-of-intakes" min="1" value="{{numberOfIntakes}}">
+                <label for="number-of-intakes">Intakes per day:</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" name="days" min="1" value="{{days}}">
+                <label for="days">Period of use (in days):</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" name="package-size" min="1" value="{{packageSize}}">
+                <label for="package-size">Package size:</label>
+            </div>
+            <button class="btn btn-primary" type="submit">Calculate</button>
         </div>
         <div class="wrapper">
-            <p>Packages to prescribe: <span id="packages">{{numberOfPackages}}</span></p>
+            <p>Packages to prescribe: <span id="packages"></span></p>
         </div>
 
         <div class="favorite-wrapper mb-5">
@@ -46,8 +43,26 @@ Package calculation
                 to favorites</a>
         </div>
     </div>
-
-
 </section>
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+    function calculatePackages() {
+        const allInputs = [...document.getElementsByClassName("form-control")]
+        const intake = parseFloat(document.getElementsByClassName("form-control")[0].value);
+        const numberOfIntakes = parseFloat(document.getElementsByClassName("form-control")[1].value);
+        const days = parseFloat(document.getElementsByClassName("form-control")[2].value);
+        const packageSize = parseFloat(document.getElementsByClassName("form-control")[3].value);
+        let numberOfPackages = Math.round((intake * numberOfIntakes * days) / packageSize);
+        packages.innerHTML = numberOfPackages;
+    }
+
+    // Run the function when the button is clicked
+    const btn = document.querySelector(".btn")
+    btn.addEventListener("click", calculatePackages)
+</script>
 
 {% endblock %}

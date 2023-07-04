@@ -1,7 +1,4 @@
 import os
-import sys
-import math
-
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
@@ -9,7 +6,7 @@ from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 from functools import wraps
 
-# All Flask, session and SQL settings are based on CS50 Finance exercise
+# All Flask, session and SQL settings below are based on CS50 Finance exercise
 
 # Configure flask application
 app = Flask(__name__)
@@ -83,11 +80,30 @@ def favorite():
     username = db.execute(
         "SELECT username FROM users WHERE id = ?", session["user_id"])[0]["username"]
 
-    # Get the element that should be added to favorites
+    # Get the item that should be added to favorites
     favorite = request.args.get("type")
 
+    # Insert a favorite into the database
     db.execute("INSERT INTO favorites (username, favorite) SELECT ?, ? WHERE NOT EXISTS (SELECT 1 FROM favorites WHERE username = ? AND favorite = ?)",
                username, favorite, username, favorite)
+
+    # Redirect user to favorites
+    return redirect("/favorites")
+
+
+@app.route('/favorite-remove')
+@login_required
+def favoriteRemove():
+    # Get username and ID of currently logged in user
+    username = db.execute(
+        "SELECT username FROM users WHERE id = ?", session["user_id"])[0]["username"]
+
+    # Get the item that should be removed from favorites
+    favorite = request.args.get("type")
+
+    # Remove data from the database where username and item match
+    db.execute(
+        "DELETE FROM favorites WHERE username = ? AND favorite = ?", username, favorite)
 
     # Redirect user to favorites
     return redirect("/favorites")
@@ -101,50 +117,21 @@ def favorites():
     username = db.execute(
         "SELECT username FROM users WHERE id = ?", session["user_id"])[0]["username"]
 
+    # Query database for user favorites
     favorites = db.execute(
-        "SELECT favorite FROM favorites WHERE username = ?", username)
+        "SELECT favorites.favorite, favorites_data.favorite_tag,favorites_data.favorite_name, favorites_data.favorite_link FROM favorites INNER JOIN favorites_data ON favorites.favorite=favorites_data.favorite_tag WHERE username = ? ORDER BY favorite_name", username)
 
     return render_template("favorites.html", favorites=favorites)
 
 
-@app.route("/ibuprofen-dosage", methods=["GET", "POST"])
+@app.route("/ibuprofen-dosage")
 def ibuprofenDosage():
-    if request.method == "POST":
-
-        if not request.form.get("age") or not request.form.get("weight"):
-            return apology("not all values have been provided", 400)
-        else:
-            age = int(request.form.get("age"))
-            weight = int(request.form.get("weight"))
-
-            if age <= 12:
-                maxDosage = str(30 * weight) + "mg"
-            else:
-                maxDosage = "1200mg"
-
-            return render_template("ibuprofen-dosage.html", age=int(age), weight=int(weight), maxDosage=maxDosage)
-    else:
-        return render_template("ibuprofen-dosage.html")
+    return render_template("ibuprofen-dosage.html")
 
 
-@app.route("/package-calculation", methods=["GET", "POST"])
+@app.route("/package-calculation")
 def packageCalculation():
-    if request.method == "POST":
-
-        if not request.form.get("intake") or not request.form.get("number-of-intakes") or not request.form.get("days") or not request.form.get("package-size"):
-            return apology("not all values have been provided", 400)
-        else:
-            intake = float(request.form.get("intake"))
-            numberOfIntakes = float(request.form.get("number-of-intakes"))
-            days = float(request.form.get("days"))
-            packageSize = float(request.form.get("package-size"))
-            numberOfPackages = math.ceil(
-                ((intake * numberOfIntakes * days) / packageSize))
-
-        return render_template("package-calculation.html", intake=int(intake), numberOfIntakes=int(numberOfIntakes), days=int(days), packageSize=int(packageSize), numberOfPackages=int(numberOfPackages))
-
-    else:
-        return render_template("package-calculation.html")
+    return render_template("package-calculation.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
