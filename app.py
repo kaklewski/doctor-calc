@@ -1,4 +1,4 @@
-import os
+# import os
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
@@ -21,13 +21,11 @@ db = SQL("sqlite:///doctor-calc.db")
 
 
 def apology(message, code=400):
-    """Render message as an apology to user."""
+    # Render a message as an apology to a user.
     def escape(s):
-        """
-        Escape special characters.
+        # Escape special characters.
+        # https://github.com/jacebrowning/memegen#special-characters
 
-        https://github.com/jacebrowning/memegen#special-characters
-        """
         for old, new in [("-", "--"), (" ", "-"), ("_", "__"), ("?", "~q"),
                          ("%", "~p"), ("#", "~h"), ("/", "~s"), ("\"", "''")]:
             s = s.replace(old, new)
@@ -36,11 +34,9 @@ def apology(message, code=400):
 
 
 def login_required(f):
-    """
-    Decorate routes to require login.
+    # Decorate routes to require login.
+    # https://flask.palletsprojects.com/en/1.1.x/patterns/viewdecorators/
 
-    https://flask.palletsprojects.com/en/1.1.x/patterns/viewdecorators/
-    """
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if session.get("user_id") is None:
@@ -51,7 +47,7 @@ def login_required(f):
 
 @app.after_request
 def after_request(response):
-    """Ensure responses aren't cached"""
+    # Ensure responses aren't cached
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     response.headers["Expires"] = 0
     response.headers["Pragma"] = "no-cache"
@@ -75,6 +71,7 @@ def cha2ds2vascScore():
 
 @app.route('/favorite')
 @login_required
+# Add an item to favorites list
 def favorite():
     # Get username and ID of currently logged in user
     username = db.execute(
@@ -93,6 +90,7 @@ def favorite():
 
 @app.route('/favorite-remove')
 @login_required
+# Remove an item from favorites list
 def favoriteRemove():
     # Get username and ID of currently logged in user
     username = db.execute(
@@ -136,7 +134,7 @@ def packageCalculation():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    """Log user in"""
+    # Log a user in
 
     # Forget any user_id
     session.clear()
@@ -173,7 +171,7 @@ def login():
 
 @app.route("/logout")
 def logout():
-    """Log user out"""
+    # Log a user out
 
     # Forget any user_id
     session.clear()
@@ -189,7 +187,7 @@ def paracetamolDosage():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    """Register user"""
+    # Register a user
 
     # Forget any user_id
     session.clear()
