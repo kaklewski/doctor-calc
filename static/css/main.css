@@ -188,7 +188,9 @@ h2 svg {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #575b5e;
+}
+.favorites-list:not(:last-child) {
+  border-bottom: 1px solid lightgrey;
 }
 
 @media (width < 768px) {

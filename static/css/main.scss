@@ -169,7 +169,7 @@ h2 {
 	background-color: $dark-color;
 }
 
-// SUBPAGES
+// SUB-PAGES
 
 .wrapper {
 	max-width: 992px;
@@ -228,10 +228,10 @@ h2 {
 		justify-content: space-between;
 		align-items: center;
 		padding: 10px;
-			border-bottom: 1px solid $secondary-color;
+	}
 
-		// &:not(:last-child) {
-		// }
+	&:not(:last-child) {
+		border-bottom: 1px solid lightgrey;
 	}
 }
 
