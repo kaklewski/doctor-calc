@@ -1,161 +1,266 @@
-{% extends "layout.html" %}
-
-{% block title %}
-CHA2DS2-VASc score
-{% endblock %}
-
+{% extends "layout.html" %} {% block title %} CHA2DS2-VASc score {% endblock %}
 {% block main %}
 
 <section class="py-5">
-    <div class="container">
-        <h2><i class="fa-solid fa-list"></i>CHA<sub>2</sub>DS<sub>2</sub>-VASc score</h2>
-        <div class="underline"></div>
+	<div class="container">
+		<h2 class="pageH2">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="48"
+				height="48"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class="icon icon-tabler icons-tabler-outline icon-tabler-list-details">
+				<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+				<path d="M13 5h8" />
+				<path d="M13 9h5" />
+				<path d="M13 15h8" />
+				<path d="M13 19h5" />
+				<path
+					d="M3 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+				<path
+					d="M3 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+			</svg>
+			CHA<sub>2</sub>DS<sub>2</sub>-VASc score
+		</h2>
+		<div class="underline"></div>
 
-        <div class="wrapper">
-            <p>Assess the risk of stroke complications for a patient with artial fibrillation.</p>
-        </div>
+		<div class="wrapper">
+			<p>
+				Assess the risk of stroke complications for a patient with
+				artial fibrillation.
+			</p>
+		</div>
 
-        <div class="wrapper">
-            <ul class="list-group rounded-0 mb-3">
-                <li
-                    class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom d-flex align-items-center ps-0">
-                    <input class="form-check-input me-3" type="checkbox" value="1" id="check1" />
-                    <label class="form-check-label" for="check1">
-                        Congestive heart failure / Left ventricular dysfunction history
-                        <span class="badge rounded-pill text-bg-secondary ms-1">+1</span>
-                    </label>
-                </li>
-                <li
-                    class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom d-flex align-items-center ps-0">
-                    <input class="form-check-input me-3" type="checkbox" value="1" id="check2" />
-                    <label class="form-check-label" for="check2">
-                        Hypertension history
-                        <span class="badge rounded-pill text-bg-secondary ms-1">+1</span>
-                    </label>
-                </li>
-                <li
-                    class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom d-flex align-items-center ps-0">
-                    <input class="form-check-input me-3" type="checkbox" value="1" id="check3" />
-                    <label class="form-check-label" for="check3">
-                        Diabetes history
-                        <span class="badge rounded-pill text-bg-secondary ms-1">+1</span>
-                    </label>
-                </li>
-                <li
-                    class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom d-flex align-items-center ps-0">
-                    <input class="form-check-input me-3" type="checkbox" value="1" id="check4" />
-                    <label class="form-check-label" for="check4">
-                        Vascular disease history (Past myocardial infarction, arterial
-                        disease or atherosclerotic plaques)
-                        <span class="badge rounded-pill text-bg-secondary ms-1">+1</span>
-                    </label>
-                </li>
-                <li
-                    class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom d-flex align-items-center ps-0">
-                    <input class="form-check-input me-3" type="checkbox" value="2" id="check7" />
-                    <label class="form-check-label" for="check7">
-                        Stroke/TIA/thromboembolic event history <span
-                            class="badge rounded-pill text-bg-secondary ms-1">+2</span>
-                    </label>
-                </li>
-                <li
-                    class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom-0 d-flex align-items-center ps-0">
-                    Sex:</li>
-                <li
-                    class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom-0 d-flex align-items-center ps-0">
-                    <input class="form-check-input me-3" type="radio" value="0" id="check6" name="sex" checked />
-                    <label class="form-check-label" for="check6">
-                        Male
-                        <span class="badge rounded-pill text-bg-secondary ms-1">0</span>
-                    </label>
-                </li>
-                <li
-                    class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom d-flex align-items-center ps-0">
-                    <input class="form-check-input me-3" type="radio" value="1" id="check5" name="sex" />
-                    <label class="form-check-label" for="check5">
-                        Female
-                        <span class="badge rounded-pill text-bg-secondary ms-1">+1</span>
-                    </label>
-                </li>
-                <li
-                    class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom-0 d-flex align-items-center ps-0">
-                    Age:</li>
-                <li
-                    class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom-0 d-flex align-items-center ps-0">
-                    <input class="form-check-input me-3" type="radio" value="0" id="check6" name="age" checked />
-                    <label class="form-check-label" for="check6">
-                        Less than 65
-                        <span class="badge rounded-pill text-bg-secondary ms-1">0</span>
-                    </label>
-                </li>
-                <li
-                    class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom-0 d-flex align-items-center ps-0">
-                    <input class="form-check-input me-3" type="radio" value="1" id="check6" name="age" />
-                    <label class="form-check-label" for="check6">
-                        65 to 74
-                        <span class="badge rounded-pill text-bg-secondary ms-1">+1</span>
-                    </label>
-                </li>
-                <li
-                    class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom-0 d-flex align-items-center ps-0">
-                    <input class="form-check-input me-3" type="radio" value="2" id="check5" name="age" />
-                    <label class="form-check-label" for="check5">
-                        75 or more
-                        <span class="badge rounded-pill text-bg-secondary ms-1">+2</span>
-                    </label>
-                </li>
-            </ul>
-        </div>
-        <div class="wrapper">
-            <p>Score: <span id="score">0</span></p>
-            <p>Stroke risk: <span id="risk">Low</span></p>
-        </div>
-        <div class="wrapper">
-            <p>Recommendation:</p>
-            <p id="recommendation">No anticoagulant or antiplatelet therapy needed.</p>
-        </div>
+		<div class="wrapper">
+			<ul class="list-group rounded-0 mb-3">
+				<li
+					class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom d-flex align-items-center ps-0">
+					<input
+						class="form-check-input me-3"
+						type="checkbox"
+						value="1"
+						id="check1" />
+					<label class="form-check-label" for="check1">
+						Congestive heart failure / Left ventricular dysfunction
+						history
+						<span class="badge rounded-pill text-bg-secondary ms-1"
+							>+1</span
+						>
+					</label>
+				</li>
+				<li
+					class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom d-flex align-items-center ps-0">
+					<input
+						class="form-check-input me-3"
+						type="checkbox"
+						value="1"
+						id="check2" />
+					<label class="form-check-label" for="check2">
+						Hypertension history
+						<span class="badge rounded-pill text-bg-secondary ms-1"
+							>+1</span
+						>
+					</label>
+				</li>
+				<li
+					class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom d-flex align-items-center ps-0">
+					<input
+						class="form-check-input me-3"
+						type="checkbox"
+						value="1"
+						id="check3" />
+					<label class="form-check-label" for="check3">
+						Diabetes history
+						<span class="badge rounded-pill text-bg-secondary ms-1"
+							>+1</span
+						>
+					</label>
+				</li>
+				<li
+					class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom d-flex align-items-center ps-0">
+					<input
+						class="form-check-input me-3"
+						type="checkbox"
+						value="1"
+						id="check4" />
+					<label class="form-check-label" for="check4">
+						Vascular disease history (Past myocardial infarction,
+						arterial disease or atherosclerotic plaques)
+						<span class="badge rounded-pill text-bg-secondary ms-1"
+							>+1</span
+						>
+					</label>
+				</li>
+				<li
+					class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom d-flex align-items-center ps-0">
+					<input
+						class="form-check-input me-3"
+						type="checkbox"
+						value="2"
+						id="check7" />
+					<label class="form-check-label" for="check7">
+						Stroke/TIA/thromboembolic event history
+						<span class="badge rounded-pill text-bg-secondary ms-1"
+							>+2</span
+						>
+					</label>
+				</li>
+				<li
+					class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom-0 d-flex align-items-center ps-0">
+					Sex:
+				</li>
+				<li
+					class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom-0 d-flex align-items-center ps-0">
+					<input
+						class="form-check-input me-3"
+						type="radio"
+						value="0"
+						id="check6"
+						name="sex"
+						checked />
+					<label class="form-check-label" for="check6">
+						Male
+						<span class="badge rounded-pill text-bg-secondary ms-1"
+							>0</span
+						>
+					</label>
+				</li>
+				<li
+					class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom d-flex align-items-center ps-0">
+					<input
+						class="form-check-input me-3"
+						type="radio"
+						value="1"
+						id="check5"
+						name="sex" />
+					<label class="form-check-label" for="check5">
+						Female
+						<span class="badge rounded-pill text-bg-secondary ms-1"
+							>+1</span
+						>
+					</label>
+				</li>
+				<li
+					class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom-0 d-flex align-items-center ps-0">
+					Age:
+				</li>
+				<li
+					class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom-0 d-flex align-items-center ps-0">
+					<input
+						class="form-check-input me-3"
+						type="radio"
+						value="0"
+						id="check6"
+						name="age"
+						checked />
+					<label class="form-check-label" for="check6">
+						Less than 65
+						<span class="badge rounded-pill text-bg-secondary ms-1"
+							>0</span
+						>
+					</label>
+				</li>
+				<li
+					class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom-0 d-flex align-items-center ps-0">
+					<input
+						class="form-check-input me-3"
+						type="radio"
+						value="1"
+						id="check6"
+						name="age" />
+					<label class="form-check-label" for="check6">
+						65 to 74
+						<span class="badge rounded-pill text-bg-secondary ms-1"
+							>+1</span
+						>
+					</label>
+				</li>
+				<li
+					class="list-group-item border-start-0 border-top-0 border-end-0 border-bottom-0 d-flex align-items-center ps-0">
+					<input
+						class="form-check-input me-3"
+						type="radio"
+						value="2"
+						id="check5"
+						name="age" />
+					<label class="form-check-label" for="check5">
+						75 or more
+						<span class="badge rounded-pill text-bg-secondary ms-1"
+							>+2</span
+						>
+					</label>
+				</li>
+			</ul>
+		</div>
+		<div class="wrapper">
+			<p>Score: <span id="score">0</span></p>
+			<p>Stroke risk: <span id="risk">Low</span></p>
+		</div>
+		<div class="wrapper">
+			<p>Recommendation:</p>
+			<p id="recommendation">
+				No anticoagulant or antiplatelet therapy needed.
+			</p>
+		</div>
 
-        <div class="favorite-wrapper mb-5">
-            <a href="/favorite?type=Cha2ds2vascScore" class="add-to-favorite"><i class="fa-solid fa-star"></i> Add
-                to favorites</a>
-        </div>
-    </div>
+		<div class="favorite-wrapper mb-5">
+			<a href="/favorite?type=CentorScore" class="add-to-favorite"
+				><svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="currentColor"
+					class="icon icon-tabler icons-tabler-filled icon-tabler-star">
+					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+					<path
+						d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" />
+				</svg>
+				Add to favorites</a
+			>
+		</div>
+	</div>
 </section>
 
-{% endblock %}
-
-{% block script %}
+{% endblock %} {% block script %}
 
 <script>
-    const allCheckboxes = [...document.getElementsByClassName("form-check-input")];
-    const riskSpan = document.getElementById("risk");
-    const recommendationParagraf = document.getElementById("recommendation");
+	const allCheckboxes = [
+		...document.getElementsByClassName('form-check-input'),
+	];
+	const riskSpan = document.getElementById('risk');
+	const recommendationParagraf = document.getElementById('recommendation');
 
-    function calculateRisk() {
-        // Read number of points (assigned by a function in main.js)
-        let calculatedPoints = document.getElementById("score").innerHTML;
-        let calculatedRisk = "";
-        let recommendation = "";
+	function calculateRisk() {
+		// Read number of points (assigned by a function in main.js)
+		let calculatedPoints = document.getElementById('score').innerHTML;
+		let calculatedRisk = '';
+		let recommendation = '';
 
-        // Assign risk and recommendation by the amount of points
-        if (calculatedPoints <= 0) {
-            calculatedRisk = "Low";
-            recommendation = "No anticoagulant or antiplatelet therapy needed.";
-        } else if (calculatedPoints == 1) {
-            calculatedRisk = "Moderate";
-            recommendation = "Consider oral anticoagulation (NOAC preferred).";
-        } else {
-            calculatedRisk = "High";
-            recommendation = "Order oral anticoagulation (NOAC preferred)";
-        }
-        riskSpan.innerHTML = calculatedRisk;
-        recommendationParagraf.innerHTML = recommendation;
-    }
-    
-    // Run the function whenever one of the values is changed
-    allCheckboxes.forEach(function (checkbox) {
-        checkbox.addEventListener("change", calculateRisk);
-    });
+		// Assign risk and recommendation by the amount of points
+		if (calculatedPoints <= 0) {
+			calculatedRisk = 'Low';
+			recommendation = 'No anticoagulant or antiplatelet therapy needed.';
+		} else if (calculatedPoints == 1) {
+			calculatedRisk = 'Moderate';
+			recommendation = 'Consider oral anticoagulation (NOAC preferred).';
+		} else {
+			calculatedRisk = 'High';
+			recommendation = 'Order oral anticoagulation (NOAC preferred)';
+		}
+		riskSpan.innerHTML = calculatedRisk;
+		recommendationParagraf.innerHTML = recommendation;
+	}
+
+	// Run the function whenever one of the values is changed
+	allCheckboxes.forEach(function (checkbox) {
+		checkbox.addEventListener('change', calculateRisk);
+	});
 </script>
 
 {% endblock %}

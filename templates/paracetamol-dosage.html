@@ -1,67 +1,106 @@
-{% extends "layout.html" %}
-
-{% block title %}
-Paracetamol dosage
-{% endblock %}
-
+{% extends "layout.html" %} {% block title %} Paracetamol dosage {% endblock %}
 {% block main %}
 
 <section class="py-5">
-    <div class="container">
-        <h2><i class="fa-solid fa-tablets"></i>Paracetamol dosage</h2>
-        <div class="underline"></div>
+	<div class="container">
+		<h2 class="pageH2">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="48"
+				height="48"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class="icon icon-tabler icons-tabler-outline icon-tabler-pills">
+				<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+				<path d="M8 8m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" />
+				<path d="M17 17m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+				<path d="M4.5 4.5l7 7" />
+				<path d="M19.5 14.5l-5 5" />
+			</svg>
 
-        <div class="wrapper">
-            <p>Calculate the maximum dose of paracetamol according to the age and weight of the patient.</p>
-        </div>
+			Paracetamol dosage
+		</h2>
+		<div class="underline"></div>
 
-        <div class="wrapper">
-            <div class="form-floating mb-3">
-                <input autofocus type="number" class="form-control" name="age" min="1" value="{{age}}">
-                <label for="age">Age (in years):</label>
-            </div>
-            <div class="form-floating mb-3">
-                <input type="number" class="form-control" name="weight" min="1" value="{{weight}}">
-                <label for="weight">Weight (in kg):</label>
-            </div>
-            <button class="btn btn-primary">Calculate</button>
-        </div>
+		<div class="wrapper">
+			<p>
+				Calculate the maximum dose of paracetamol according to the age
+				and weight of the patient.
+			</p>
+		</div>
 
-        <div class="wrapper">
-            <p>Max dosage per day: <span id="max-dosage"></span></p>
-        </div>
+		<div class="wrapper">
+			<div class="form-floating mb-3">
+				<input
+					autofocus
+					type="number"
+					class="form-control"
+					name="age"
+					min="1"
+					value="{{age}}" />
+				<label for="age">Age (in years):</label>
+			</div>
+			<div class="form-floating mb-3">
+				<input
+					type="number"
+					class="form-control"
+					name="weight"
+					min="1"
+					value="{{weight}}" />
+				<label for="weight">Weight (in kg):</label>
+			</div>
+			<button class="btn btn-primary">Calculate</button>
+		</div>
 
-        <div class="favorite-wrapper mb-5">
-            <a href="/favorite?type=ParacetamolDosage" class="add-to-favorite"><i class="fa-solid fa-star"></i> Add to
-                favorites</a>
-        </div>
-    </div>
+		<div class="wrapper">
+			<p>Max dosage per day: <span id="max-dosage"></span></p>
+		</div>
+
+		<div class="favorite-wrapper mb-5">
+			<a href="/favorite?type=CentorScore" class="add-to-favorite"
+				><svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="currentColor"
+					class="icon icon-tabler icons-tabler-filled icon-tabler-star">
+					<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+					<path
+						d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" />
+				</svg>
+				Add to favorites</a
+			>
+		</div>
+	</div>
 </section>
 
-{% endblock %}
-
-{% block script %}
+{% endblock %} {% block script %}
 
 <script>
-    function calculateDosage() {
-        const age = document.getElementsByClassName("form-control")[0].value;
-        const weight = document.getElementsByClassName("form-control")[1].value;
-        let maxDosage = document.getElementById("max-dosage");
-        let calculatedDosage = 0;
+	function calculateDosage() {
+		const age = document.getElementsByClassName('form-control')[0].value;
+		const weight = document.getElementsByClassName('form-control')[1].value;
+		let maxDosage = document.getElementById('max-dosage');
+		let calculatedDosage = 0;
 
-        if (age < 18 && weight <= 33) {
-            calculateDosage = (50 * weight) + 'mg';
-        } else if (age < 18 && weight > 33 || age >= 18 && weight < 50) {
-            calculateDosage = (65 * weight) + 'mg';
-        } else {
-            calculateDosage = "4g";
-        }
-        maxDosage.innerHTML = calculateDosage;
-    }
+		if (age < 18 && weight <= 33) {
+			calculateDosage = 50 * weight + 'mg';
+		} else if ((age < 18 && weight > 33) || (age >= 18 && weight < 50)) {
+			calculateDosage = 65 * weight + 'mg';
+		} else {
+			calculateDosage = '4g';
+		}
+		maxDosage.innerHTML = calculateDosage;
+	}
 
-    // Run the function when the button is clicked
-    const btn = document.querySelector(".btn")
-    btn.addEventListener("click", calculateDosage)
+	// Run the function when the button is clicked
+	const btn = document.querySelector('.btn');
+	btn.addEventListener('click', calculateDosage);
 </script>
 
 {% endblock %}

@@ -23,8 +23,9 @@ h2 {
   font-weight: bold;
   text-align: center;
 }
-h2 i {
-  margin-right: 15px;
+h2 svg {
+  margin-top: -3px;
+  margin-right: 5px;
   color: #575b5e;
 }
 
@@ -165,6 +166,9 @@ h2 i {
   margin-right: auto;
 }
 .favorite-wrapper .add-to-favorite {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   position: absolute;
   right: 0;
   color: #575b5e;
@@ -187,6 +191,11 @@ h2 i {
   border-bottom: 1px solid #575b5e;
 }
 
+@media (width < 768px) {
+  .pageH2 {
+    margin-top: 50px;
+  }
+}
 @media (width >= 768px) {
   .navbar {
     position: sticky;
