@@ -228,14 +228,17 @@ h2 {
 		justify-content: space-between;
 		align-items: center;
 		padding: 10px;
-		border-bottom: 1px solid $secondary-color;
+			border-bottom: 1px solid $secondary-color;
+
+		// &:not(:last-child) {
+		// }
 	}
 }
 
 // MEDIA
 
 @media (width < 768px) {
-	 .pageH2 {
+	.pageH2 {
 		margin-top: 50px;
 	}
 }
