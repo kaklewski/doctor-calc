@@ -17,7 +17,11 @@ html {
 body {
 	position: relative;
 	min-height: 100vh;
-	font-family: "Montserrat", sans-serif;
+	font-family: 'Montserrat', sans-serif;
+}
+
+main {
+	padding-bottom: 50px;
 }
 
 h2 {
@@ -61,11 +65,13 @@ h2 {
 	}
 
 	.navbar-brand {
+		display: flex;
+		align-items: center;
 		font-weight: bold;
 		transition: color 0.3s;
 		text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
 
-		i,
+		svg,
 		span {
 			color: $main-color;
 		}
@@ -73,13 +79,12 @@ h2 {
 
 	.nav-link {
 		text-transform: uppercase;
-		// font-weight: bold;
 	}
 
 	.navbar-toggler {
 		border: none;
 
-		.fa-bars {
+		svg {
 			color: $white-color;
 		}
 	}
@@ -224,12 +229,6 @@ h2 {
 }
 
 // MEDIA
-
-@media (width < 768px) {
-	body {
-		padding-top: 50px;
-	}
-}
 
 @media (width >= 768px) {
 	.navbar {

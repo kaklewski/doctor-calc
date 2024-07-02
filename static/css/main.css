@@ -15,6 +15,10 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+main {
+  padding-bottom: 50px;
+}
+
 h2 {
   font-weight: bold;
   text-align: center;
@@ -51,11 +55,13 @@ h2 i {
   color: #0d6efd;
 }
 .navbar .navbar-brand {
+  display: flex;
+  align-items: center;
   font-weight: bold;
   transition: color 0.3s;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
 }
-.navbar .navbar-brand i,
+.navbar .navbar-brand svg,
 .navbar .navbar-brand span {
   color: #0d6efd;
 }
@@ -65,7 +71,7 @@ h2 i {
 .navbar .navbar-toggler {
   border: none;
 }
-.navbar .navbar-toggler .fa-bars {
+.navbar .navbar-toggler svg {
   color: white;
 }
 
@@ -181,11 +187,6 @@ h2 i {
   border-bottom: 1px solid #575b5e;
 }
 
-@media (width < 768px) {
-  body {
-    padding-top: 50px;
-  }
-}
 @media (width >= 768px) {
   .navbar {
     position: sticky;
