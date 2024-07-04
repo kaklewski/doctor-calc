@@ -131,7 +131,7 @@ h2 {
 		}
 	}
 
-	button {
+	.see-more {
 		position: absolute;
 		bottom: 20px;
 		left: 50%;
@@ -141,10 +141,21 @@ h2 {
 		background: none;
 		border: none;
 		transition: color 0.3s;
+		animation: pulse 1s infinite ease-in-out alternate;
 	}
 
-	button:hover {
+	.see-more:hover {
 		color: $main-color;
+	}
+
+	// source: https://codepen.io/nelledejones/pen/gOOPWrK?editors=1100
+	@keyframes pulse {
+		from {
+			transform: scale(0.8);
+		}
+		to {
+			transform: scale(1.2);
+		}
 	}
 }
 
