@@ -22,7 +22,10 @@ The back end is created with:
 
 ## Features
 
-bbb
+-   **Medical calculators**: Calculate medication dosages or packaging needs with specialized calculators.
+-   **Doctor scales**: Determine patient scores using a variety of medical scales.
+-   **Recommendations**: Receive personalized recommendations based on calculated scores.
+-   **Favorites**: Register to save and easily access your favorite calculators and scales.
 
 ## Screenshots
 
@@ -42,16 +45,18 @@ bbb
 
 `cd doctor-calc`
 
-3. Create and activate a Python virtual environment:
+3. Create a Python virtual environment:
 
 `virtualenv venv`
 
+4. Activate the environment:
+
 `source venv/bin/activate`
 
-4. Install the dependencies:
+5. Install the dependencies:
 
 `pip install -r requirements.txt`
 
-3. Start the development environment:
+6. Start the development environment:
 
 `flask --app app.py --debug run`
