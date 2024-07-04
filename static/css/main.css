@@ -15,14 +15,6 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-main {
-  padding-bottom: 50px;
-}
-
-h2 {
-  font-weight: bold;
-  text-align: center;
-}
 h2 svg {
   margin-top: -3px;
   margin-right: 5px;
@@ -58,9 +50,10 @@ h2 svg {
 .navbar .navbar-brand {
   display: flex;
   align-items: center;
+  font-size: 1.6em;
   font-weight: bold;
-  transition: color 0.3s;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  transition: color 0.3s;
 }
 .navbar .navbar-brand svg,
 .navbar .navbar-brand span {
@@ -147,6 +140,7 @@ h2 svg {
   width: 100%;
   bottom: 0;
   background-color: #212529;
+  font-size: 0.8em;
 }
 
 .wrapper {

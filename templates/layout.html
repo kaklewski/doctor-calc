@@ -30,8 +30,8 @@
 				<a class="navbar-brand" href="/">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
-						width="24"
-						height="24"
+						width="32"
+						height="32"
 						viewBox="0 0 24 24"
 						fill="none"
 						stroke="currentColor"
@@ -84,9 +84,9 @@
 						<li class="nav-item">
 							<a class="nav-link" href="/#criteria">Scores</a>
 						</li>
-						<!-- <li class="nav-item">
+						<li class="nav-item">
 							<a class="nav-link" href="/#about">About</a>
-						</li> -->
+						</li>
 						{% if session["user_id"] %}
 						<li class="nav-item">
 							<a class="nav-link" href="/favorites">Favorites</a>
@@ -107,7 +107,7 @@
 			</div>
 		</nav>
 
-		<main>{% block main %}{% endblock %}</main>
+		<main class="pb-5">{% block main %}{% endblock %}</main>
 
 		<footer class="footer py-3 text-light text-center">
 			<p class="mb-0">
